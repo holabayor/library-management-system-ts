@@ -5,9 +5,10 @@ export default class Book {
   isAvailable: boolean;
   /**
    * Creates a new Book object
-   * @param {string} title - The title of the book
-   * @param {string} author - The author of the book
-   * @param {string} isbn - The isbn of the book
+   *
+   * @param title - The title of the book
+   * @param author - The author of the book
+   * @param isbn - The isbn of the book
    */
   constructor(title: string, author: string, isbn: string) {
     this.title = title;

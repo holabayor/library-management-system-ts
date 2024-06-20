@@ -12,26 +12,29 @@ class Library {
 
   /**
    * Adds a Book object to the library
-   * @param {Book} book  - A Book object to add to the library
+   *
+   * @param book - A Book object to add to the library
    */
-  addBook(book: Book) {
+  public addBook(book: Book) {
     this.books.push(book);
   }
 
   /**
    * Removes a Book object to the library
-   * @param {string} isbn  - The ISBN of the book to remove
+   *
+   * @param isbn - The ISBN of the book to remove
    */
-  removeBook(isbn: string) {
+  public removeBook(isbn: string) {
     this.books = this.books.filter((book) => book.isbn !== isbn);
   }
 
   /**
    * Searches for books in the library that match a query
-   * @param {string} query - The search query
-   * @returns {Book[]} - An array of Book objects that match the search query
+   *
+   * @param query - The search query
+   * @returns An array of Book objects that match the search query
    */
-  searchBook(query: string): Book[] {
+  public searchBook(query: string): Book[] {
     return this.books.filter(
       (book) =>
         book.title.includes(query) ||
@@ -42,26 +45,29 @@ class Library {
 
   /**
    * Add a User object to the library
+   *
    * @param {User} user - A User object to add to the library
    */
-  addUser(user: User) {
+  public addUser(user: User) {
     this.users.push(user);
   }
 
   /**
    * Removes a user from the library
-   * @param {string} id - The id of the user to remove
+   *
+   * @param id - The id of the user to remove
    */
-  removeUser(id: string) {
+  public removeUser(id: string) {
     this.users = this.users.filter((user) => user.id !== id);
   }
 
   /**
    * Searches for users in the library that match a query
-   * @param {string} query - The search query
-   * @returns {User[]} - An array of User objects that match the search query
+   *
+   * @param query - The search query
+   * @returns An array of User objects that match the search query
    */
-  searchUser(query: string): User[] {
+  public searchUser(query: string): User[] {
     return this.users.filter(
       (user) => user.name.includes(query) || user.id === query
     );
@@ -69,11 +75,12 @@ class Library {
 
   /**
    * Borrow a book from the library
-   * @param {string} userId - The id of the user borrowing the book
-   * @param {string} isbn  - The ISBN of the book to borrow
-   * @returns {boolean} True if the book was borrowed successfully, otherwise false.
+   *
+   * @param userId - The id of the user borrowing the book
+   * @param isbn - The ISBN of the book to borrow
+   * @returns True if the book was borrowed successfully, otherwise false.
    */
-  borrowBook(userId: string, isbn: string): boolean {
+  public borrowBook(userId: string, isbn: string): boolean {
     const user = this.users.find((user) => user.id === userId);
     const book = this.books.find((book) => book.isbn === isbn);
 
@@ -87,11 +94,11 @@ class Library {
 
   /**
    * Returns a borrowed book to the library
-   * @param {string} userId - The id of the user returning the book.
-   * @param {string} isbn  - The ISBN of the book to return.
-   * @returns {boolean} True if the book was returned successfully, otherwise false.
+   * @param userId - The id of the user returning the book.
+   * @param isbn - The ISBN of the book to return.
+   * @returns True if the book was returned successfully, otherwise false.
    */
-  returnBook(userId: string, isbn: string): boolean {
+  public returnBook(userId: string, isbn: string): boolean {
     const user = this.users.find((user) => user.id === userId);
     const book = this.books.find((book) => book.isbn === isbn);
 
@@ -108,10 +115,10 @@ class Library {
 
   /**
    * Checks if a book is available in the library
-   * @param {string} isbn  - The ISBN of the book
-   * @returns {boolean} True if the book is available, false otherwise
+   * @param isbn  - The ISBN of the book
+   * @returns True if the book is available, false otherwise
    */
-  isBookAvailable(isbn: string): boolean {
+  public isBookAvailable(isbn: string): boolean {
     const book = this.books.find((book) => book.isbn === isbn);
     return book ? book.isAvailable : false;
   }

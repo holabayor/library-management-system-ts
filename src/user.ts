@@ -8,7 +8,8 @@ export default class User {
 
   /**
    * Creates a new User object
-   * @param {string} name - The name of the user
+   *
+   * @param name - The name of the user
    */
   constructor(name: string) {
     this.id = uuidv4();
