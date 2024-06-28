@@ -1,4 +1,11 @@
-export default class Book {
+interface IBook {
+  title: string;
+  author: string;
+  isbn: string;
+  isAvailable: boolean;
+}
+
+export default class Book implements IBook {
   title: string;
   author: string;
   isbn: string;

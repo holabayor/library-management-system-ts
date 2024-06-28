@@ -1,7 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 import Book from './book';
 
-export default class User {
+interface IUser {
+  id: string;
+  name: string;
+  borrowedBooks: Book[];
+}
+
+export default class User implements IUser {
   id: string;
   name: string;
   borrowedBooks: Book[];

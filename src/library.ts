@@ -1,7 +1,21 @@
 import Book from './book';
 import User from './user';
 
-class Library {
+interface ILibrary {
+  books: Book[];
+  users: User[];
+  addBook(book: Book): void;
+  removeBook(isbn: string): void;
+  searchBook(query: string): Book[];
+  addUser(user: User): void;
+  removeUser(id: string): void;
+  searchUser(query: string): User[];
+  borrowBook(userId: string, isbn: string): boolean;
+  returnBook(userId: string, isbn: string): boolean;
+  isBookAvailable(isbn: string): boolean;
+}
+
+class Library implements ILibrary {
   books: Book[];
   users: User[];
 
